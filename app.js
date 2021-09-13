@@ -4,7 +4,6 @@ const loadProducts = () => {
 };
 
 
-
 // show all product in UI 
 const showProducts = (products) => {
   const allProducts = products.map((pd) => pd);
@@ -27,6 +26,7 @@ const showProducts = (products) => {
     document.getElementById("all-products").appendChild(div);
   }
 };
+// Add to cart part start here 
 let count = 0;
 const addToCart = (id, price) => {
   count = count + 1;
@@ -53,7 +53,7 @@ const updatePrice = (id, value) => {
 
 // set innerText function
 const setInnerText = (id, value) => {
-  document.getElementById(id).innerText = value.toFiexed(2);
+  document.getElementById(id).innerText = value.toFixed(2);
 };
 
 // update delivery charge and total Tax
@@ -78,6 +78,8 @@ const updateTotal = () => {
   const grandTotal =
     getInputValue("price") + getInputValue("delivery-charge") +
     getInputValue("total-tax");
-  document.getElementById("total").innerText = grandTotal;
+    // console.log(grandTotal);
+  document.getElementById("total").innerText = grandTotal.toFixed(2);
 };
+// console.log(updateTotal)
 loadProducts();
